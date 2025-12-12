@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3qmgr88q8e1d"]
+
+[ext_resource type="PackedScene" uid="uid://dkny6fq7h04w" path="res://scene/player.tscn" id="1_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://dwso1n6ilupdw" path="res://scene/tilemap.tscn" id="2_wp4xf"]
+
+[node name="main" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_wp4xf")]
+position = Vector2(0, 2)
+
+[node name="player" parent="." instance=ExtResource("1_v0l8b")]
+position = Vector2(200, 200)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+offset = Vector2(50, 0)
+zoom = Vector2(3, 3)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.5
+drag_top_margin = 0.44
+drag_bottom_margin = 0.5
