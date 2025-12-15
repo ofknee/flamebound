@@ -9,7 +9,7 @@
 position = Vector2(0, 2)
 
 [node name="player" parent="." instance=ExtResource("1_v0l8b")]
-position = Vector2(200, 200)
+position = Vector2(200, 191)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 offset = Vector2(50, 0)

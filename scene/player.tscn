@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dkny6fq7h04w"]
+[gd_scene load_steps=78 format=3 uid="uid://dkny6fq7h04w"]
 
 [ext_resource type="Script" uid="uid://ch5v776npxyry" path="res://scene/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://b6gmnntmio5bw" path="res://assets/character/detailed/Sprites/IDLE/idle_down.png" id="2_2fvbb"]
@@ -501,18 +501,33 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fvbb"]
-size = Vector2(12, 5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fvbb"]
+radius = 2.0
+
+[sub_resource type="Gradient" id="Gradient_2fvbb"]
+offsets = PackedFloat32Array(0, 0.42333335, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.49666667, 0.49666667, 0.49666667, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ml7e8"]
+gradient = SubResource("Gradient_2fvbb")
+use_hdr = true
 
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_hjaqi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_34jf3")
-animation = &"idle-down"
+animation = &"idle-left"
 autoplay = "idle-up"
+frame_progress = 0.665827
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 17.5)
-shape = SubResource("RectangleShape2D_2fvbb")
+position = Vector2(0, 17)
+shape = SubResource("CircleShape2D_2fvbb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+enabled = false
+texture = SubResource("GradientTexture2D_ml7e8")
