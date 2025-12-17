@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://du5njfvp6wxi8"]
+[gd_scene load_steps=14 format=3 uid="uid://du5njfvp6wxi8"]
 
+[ext_resource type="Script" uid="uid://fxt270eo14gh" path="res://scene/spike.gd" id="1_ca5c8"]
 [ext_resource type="Texture2D" uid="uid://c22oc5md6xcot" path="res://assets/tilemap/candleB_01.png" id="1_ch3xn"]
 [ext_resource type="Texture2D" uid="uid://45pqbxbypl83" path="res://assets/tilemap/candleB_02.png" id="2_ca5c8"]
 [ext_resource type="Texture2D" uid="uid://ctbcgw2glcw40" path="res://assets/tilemap/candleB_03.png" id="3_6i20d"]
@@ -79,8 +80,9 @@ animations = [{
 radius = 6.0827627
 
 [node name="spike" type="Area2D"]
+script = ExtResource("1_ca5c8")
 
-[node name="spikanim" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jl2kw")
 animation = &"spike"
 autoplay = "spike"
@@ -90,3 +92,7 @@ frame_progress = 0.23380214
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_7p3vy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

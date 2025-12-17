@@ -1,7 +1,8 @@
-[gd_scene load_steps=78 format=3 uid="uid://dkny6fq7h04w"]
+[gd_scene load_steps=79 format=3 uid="uid://dkny6fq7h04w"]
 
 [ext_resource type="Script" uid="uid://ch5v776npxyry" path="res://scene/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://b6gmnntmio5bw" path="res://assets/character/detailed/Sprites/IDLE/idle_down.png" id="2_2fvbb"]
+[ext_resource type="Texture2D" uid="uid://3kkx7xk5dnkj" path="res://assets/character/shadow.png" id="2_ml7e8"]
 [ext_resource type="Texture2D" uid="uid://b1tfpvyal8qxh" path="res://assets/character/detailed/Sprites/IDLE/idle_left.png" id="3_ml7e8"]
 [ext_resource type="Texture2D" uid="uid://dra5bcv4dhpkj" path="res://assets/character/detailed/Sprites/IDLE/idle_right.png" id="4_ihjo1"]
 [ext_resource type="Texture2D" uid="uid://dspm2nrpinor8" path="res://assets/character/detailed/Sprites/IDLE/idle_up.png" id="5_dk1vr"]
@@ -9,6 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://cb2uw5v5d48vg" path="res://assets/character/detailed/Sprites/RUN/run_left.png" id="7_u7b46"]
 [ext_resource type="Texture2D" uid="uid://bnp6g7vykac33" path="res://assets/character/detailed/Sprites/RUN/run_right.png" id="8_j4wxg"]
 [ext_resource type="Texture2D" uid="uid://dts8aln8o0u6i" path="res://assets/character/detailed/Sprites/RUN/run_up.png" id="9_bup7g"]
+
+[sub_resource type="Gradient" id="Gradient_ml7e8"]
+offsets = PackedFloat32Array(0, 0.21212122, 0.36969697, 0.6666667, 0.8606061, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.84046924, 0.84046924, 0.84046924, 1, 0.6909091, 0.6909091, 0.6909091, 1, 0.21923074, 0.21923074, 0.21923074, 1, 0.11758741, 0.11758741, 0.11758741, 1, 0, 0, 0, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ihjo1"]
+gradient = SubResource("Gradient_ml7e8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.4)
+metadata/_snap_enabled = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ja17"]
 atlas = ExtResource("2_2fvbb")
@@ -504,17 +517,22 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fvbb"]
 radius = 2.0
 
-[sub_resource type="Gradient" id="Gradient_2fvbb"]
-offsets = PackedFloat32Array(0, 0.42333335, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.49666667, 0.49666667, 0.49666667, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ml7e8"]
-gradient = SubResource("Gradient_2fvbb")
-use_hdr = true
-
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_hjaqi")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+show_behind_parent = true
+z_index = -1
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ihjo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.6226046e-06, 19.499998)
+scale = Vector2(0.6249999, 0.5312502)
+texture = ExtResource("2_ml7e8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
@@ -526,8 +544,3 @@ frame_progress = 0.665827
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 17)
 shape = SubResource("CircleShape2D_2fvbb")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-enabled = false
-texture = SubResource("GradientTexture2D_ml7e8")

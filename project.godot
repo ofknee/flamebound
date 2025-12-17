@@ -15,6 +15,14 @@ run/main_scene="uid://c3qmgr88q8e1d"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://script/Global.gd"
+
+[display]
+
+window/size/mode=2
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
@@ -22,7 +30,11 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://assets/": "pink"
+"res://addons/": "gray",
+"res://assets/": "pink",
+"res://images/": "gray",
+"res://scene/": "purple",
+"res://script/": "blue"
 }
 
 [input]

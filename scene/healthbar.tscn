@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://exsfs5p4a4ri"]
+
+[ext_resource type="Script" uid="uid://dy2okce8nlhgc" path="res://scene/healthbar.gd" id="1_1sgpw"]
+[ext_resource type="Texture2D" uid="uid://fumaiv13yk40" path="res://assets/health bar gameboy-Sheet.png" id="1_8xab7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sgpw"]
+atlas = ExtResource("1_8xab7")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye61w"]
+atlas = ExtResource("1_8xab7")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al1yy"]
+atlas = ExtResource("1_8xab7")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2tmu"]
+atlas = ExtResource("1_8xab7")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmajj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sgpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye61w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al1yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2tmu")
+}],
+"loop": true,
+"name": &"all",
+"speed": 5.0
+}]
+
+[node name="healthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(13, 13)
+script = ExtResource("1_1sgpw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_mmajj")
+animation = &"all"
