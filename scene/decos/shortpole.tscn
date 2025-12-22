@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://babp7sm7clel6"]
+
+[ext_resource type="Texture2D" uid="uid://cilbgtryep4cr" path="res://assets/tilemap/decorative.png" id="1_by0bw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_by0bw"]
+radius = 6.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_by0bw")
+region_enabled = true
+region_rect = Rect2(33, 36, 13, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_by0bw")

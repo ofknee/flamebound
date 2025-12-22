@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://exsfs5p4a4ri"]
 
-[ext_resource type="Script" uid="uid://dy2okce8nlhgc" path="res://scene/healthbar.gd" id="1_1sgpw"]
+[ext_resource type="Script" uid="uid://dy2okce8nlhgc" path="res://script/healthbar.gd" id="1_1sgpw"]
 [ext_resource type="Texture2D" uid="uid://fumaiv13yk40" path="res://assets/health bar gameboy-Sheet.png" id="1_8xab7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sgpw"]
@@ -42,7 +42,6 @@ animations = [{
 [node name="healthbar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(13, 13)
 script = ExtResource("1_1sgpw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,34 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3qmgr88q8e1d"]
+[gd_scene load_steps=7 format=3 uid="uid://c3qmgr88q8e1d"]
 
 [ext_resource type="PackedScene" uid="uid://dkny6fq7h04w" path="res://scene/player.tscn" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://dwso1n6ilupdw" path="res://scene/tilemap.tscn" id="2_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://exsfs5p4a4ri" path="res://scene/healthbar.tscn" id="3_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://babp7sm7clel6" path="res://scene/decos/shortpole.tscn" id="4_brvut"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0ha60"]
+scenes/1/scene = ExtResource("4_brvut")
+
+[sub_resource type="TileSet" id="TileSet_4j5ol"]
+sources/0 = SubResource("TileSetScenesCollectionSource_0ha60")
 
 [node name="main" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="healthbar" parent="CanvasLayer" instance=ExtResource("3_wp4xf")]
-offset_left = 297.0
-offset_top = 156.0
-offset_right = 297.0
-offset_bottom = 156.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Environment" type="Node2D" parent="."]
+[node name="sorting" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(320, 217)
 
-[node name="player" parent="Environment" instance=ExtResource("1_v0l8b")]
+[node name="player" parent="sorting" instance=ExtResource("1_v0l8b")]
 
-[node name="Camera2D" type="Camera2D" parent="Environment/player"]
+[node name="Camera2D" type="Camera2D" parent="sorting/player"]
 offset = Vector2(50, 0)
 zoom = Vector2(5, 5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 0.5
-drag_top_margin = 0.44
-drag_bottom_margin = 0.5
+drag_left_margin = 0.15
+drag_top_margin = 0.3
+drag_right_margin = 0.15
+drag_bottom_margin = 0.3
 
-[node name="TileMaps" parent="Environment" instance=ExtResource("2_wp4xf")]
+[node name="healthbar" parent="sorting/player" instance=ExtResource("3_wp4xf")]
+z_index = 3
+z_as_relative = false
+offset_left = -1.0
+offset_top = -22.0
+offset_right = -1.0
+offset_bottom = -22.0
+metadata/_edit_use_anchors_ = true
+
+[node name="decoration" type="Node2D" parent="sorting"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="sorting/decoration"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray(0, 0, 243, 255, 253, 255, 0, 0, 0, 0, 0, 0, 1, 0, 240, 255, 251, 255, 0, 0, 0, 0, 0, 0, 1, 0, 239, 255, 254, 255, 0, 0, 0, 0, 0, 0, 1, 0)
+tile_set = SubResource("TileSet_4j5ol")
+
+[node name="TileMaps" parent="sorting" instance=ExtResource("2_wp4xf")]
+z_index = 1
 position = Vector2(-320, -215)
