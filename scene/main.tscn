@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3qmgr88q8e1d"]
+[gd_scene load_steps=7 format=4 uid="uid://c3qmgr88q8e1d"]
 
 [ext_resource type="PackedScene" uid="uid://dkny6fq7h04w" path="res://scene/player.tscn" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://dwso1n6ilupdw" path="res://scene/tilemap.tscn" id="2_wp4xf"]
@@ -23,7 +23,7 @@ position = Vector2(320, 217)
 
 [node name="Camera2D" type="Camera2D" parent="sorting/player"]
 offset = Vector2(50, 0)
-zoom = Vector2(5, 5)
+zoom = Vector2(8, 8)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 0.5
@@ -47,7 +47,7 @@ y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="sorting/decoration"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray(0, 0, 243, 255, 253, 255, 0, 0, 0, 0, 0, 0, 1, 0, 240, 255, 251, 255, 0, 0, 0, 0, 0, 0, 1, 0, 239, 255, 254, 255, 0, 0, 0, 0, 0, 0, 1, 0)
+tile_map_data = PackedByteArray("AADz//3/AAAAAAAAAQDw//v/AAAAAAAAAQDv//7/AAAAAAAAAQD6/wUAAAAAAAAAAQD6/wYAAAAAAAAAAQD6/wcAAAAAAAAAAQD6/wgAAAAAAAAAAQD6/wkAAAAAAAAAAQD6/woAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_4j5ol")
 
 [node name="TileMaps" parent="sorting" instance=ExtResource("2_wp4xf")]

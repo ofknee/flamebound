@@ -1,12 +1,7 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dtgb2guspxyxe"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dtgb2guspxyxe"]
 
-[ext_resource type="PackedScene" uid="uid://babp7sm7clel6" path="res://scene/decos/shortpole.tscn" id="1_3nv86"]
 [ext_resource type="Texture2D" uid="uid://cilbgtryep4cr" path="res://assets/tilemap/decorative.png" id="1_yer7u"]
 [ext_resource type="Texture2D" uid="uid://bsj032g0fqoeg" path="res://assets/tilemap/mainlevbuild.png" id="2_3nv86"]
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vfc6y"]
-resource_name = "scenified"
-scenes/2/scene = ExtResource("1_3nv86")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmvbo"]
 texture = ExtResource("2_3nv86")
@@ -1875,4 +1870,3 @@ texture = ExtResource("1_yer7u")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_vmvbo")
 sources/3 = SubResource("TileSetAtlasSource_n2rp7")
-sources/0 = SubResource("TileSetScenesCollectionSource_vfc6y")
