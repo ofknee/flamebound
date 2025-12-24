@@ -541,7 +541,7 @@ position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_34jf3")
 animation = &"idle-left"
 autoplay = "idle-up"
-frame_progress = 0.665827
+frame_progress = 0.22073415
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -550,4 +550,4 @@ shape = SubResource("CircleShape2D_2fvbb")
 
 [node name="main hitbox" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 18)
-polygon = PackedVector2Array(0, -2, 2, -2, 5, -2, 6, -1, 6, 0, 5, 1, 4, 1, -4, 1, -5, 0, -5, -1, -4, -2, 0, -2)
+polygon = PackedVector2Array(0, -3, 2, -3, 5, -2, 6, -1, 6, 0, 5, 1, 4, 1, -4, 1, -5, 0, -5, -1, -4, -2, -1, -3)
